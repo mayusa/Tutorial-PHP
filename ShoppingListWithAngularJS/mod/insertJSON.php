@@ -13,8 +13,11 @@ try {
 
 	$json = json_decode($jsondata, true);
 	$len = count($json['items']);
-
-	$id = $json['items'][$len-1]['id']+1;
+	if($len == 0) {
+		$id = "0";
+	} else {
+		$id = $json['items'][$len-1]['id']+1;
+	}
 	$item = $_POST['item'];
 	$qty = $_POST['qty'];
 	$type = $_POST['type'];
