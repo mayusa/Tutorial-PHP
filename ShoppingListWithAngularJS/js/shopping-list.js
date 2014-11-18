@@ -34,10 +34,10 @@ angular.module('clausApp', [])
         };
 }])
 .controller('ShoppingListController', function ($scope, $http, $log, helperFactory, MAX_LENGTH, MIN_LENGTH) {
-	var urlInsert = 'mod/insert.php';
-	var urlSelect = 'mod/select.php';
-	var urlUpdate = 'mod/update.php';
-	var urlRemove = 'mod/remove.php';
+	var urlInsert = 'mod/insertJSON.php';
+	var urlSelect = 'js/items.json';
+	var urlUpdate = 'mod/updateJSON.php';
+	var urlRemove = 'mod/removeJSON.php';
 	
 	$scope.types = [];
 	$scope.items = [];
@@ -97,6 +97,7 @@ angular.module('clausApp', [])
 				headers : {'Content-Type' : 'application/x-www-form-urlencoded'}				
 			})
 				.success(function(data) {
+					console.log(data);
 					if (_recordAddedSuccessfully(data)) {
 						$scope.items.push({
 							item : data.item.item,
@@ -118,6 +119,7 @@ angular.module('clausApp', [])
 	$scope.select = function () {
 		$http.get(urlSelect)
 		.success(function(data) {
+			console.log(data);
 			if (data.items) {
 				$scope.items = data.items;
 			}
@@ -143,8 +145,8 @@ angular.module('clausApp', [])
 			headers : {'Content-Type' : 'application/x-www-form-urlencoded'}	
 		})
 		.success(function (data) {
-			$log.info(item);
-			$log.info(data);
+			//$log.info(item);
+			//$log.info(data);
 		})
 		.error(function(data, status, headers, config){
 			throw new Error('Something went wrong with updating record');						
@@ -166,6 +168,7 @@ angular.module('clausApp', [])
 				headers : {'Content-Type' : 'application/x-www-form-urlencoded'}	
 			})
 			.success(function (data) {
+				console.log(data);
 				if (_recordRemovedSuccessfully(data)) {
 					$scope.items = $scope.items.filter(function(item) {
 						return item.done == 0;

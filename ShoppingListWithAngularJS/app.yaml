@@ -1,0 +1,31 @@
+application: mayshoppinglist
+version: 1
+runtime: php
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /
+  script: main.php
+
+- url: /css
+  static_dir: css
+
+- url: /js
+  static_dir: js
+
+- url: /mod
+  static_dir: mod
+
+- url: /db
+  static_dir: db
+
+- url: /*
+  script: not_found.php
+
+
+

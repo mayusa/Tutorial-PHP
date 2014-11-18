@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="mayApp">
+<html ng-app="clausApp">
 <head>
 	<meta charset="utf-8">
 	<!-- viewport: 控制在设备上缩放页面 -->
@@ -87,7 +87,7 @@
 							<input type="checkbox" name="item-{{ item.id }}" id="item-{{ item.id }}" 
 							ng-model="item.done" 
 							ng-true-value="1" 
-							ng-false-value="0" 
+							ng-false-value="0"
 							ng-change="update(item)"> 	{{ item.item}}
 						</label>
 					</div>
