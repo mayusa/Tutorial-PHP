@@ -1,8 +1,9 @@
 body {
 	font-family: Arial, sans-serif;
-	font-style: 14px;
+	font-size: 14px;
 }
-#nav, #addForm {
+
+#addForm {
 	display: none;
 }
 
@@ -12,28 +13,34 @@ body {
 	list-style: none;
 }
 
-#item .row {
+#items .row {
 	width: 100%;
 	padding: 5px 0;
 	border-bottom: dashed 1px #aaa;
+	float: left;
 }
 
 #items .row.done * {
 	font-style: italic;
 	text-decoration: line-through;
 }
+
 #items .row .columns {
-	font: left;
+	float: left;
 }
+
 #items .itemName {
 	width: 80%;
 }
+
 #items .itemName input {
 	margin-bottom: 0;
 }
+
 #items .itemQty {
 	width: 10%;
 }
+
 #items .itemType {
-	width: 10%;
+	
 }

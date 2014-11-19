@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="clausApp">
+<html ng-app="mayApp">
 <head>
 	<meta charset="utf-8">
 	<!-- viewport: 控制在设备上缩放页面 -->
@@ -11,13 +11,19 @@
 	<link rel="stylesheet" media="screen" href="css/foundation.css">
 	<link rel="stylesheet" media="screen" href="css/app-screen.css">
 	<link rel="stylesheet" media="print" href="css/app-print.css">
-	<script src="js/angular.js"></script>
-	<script src="js/shopping-list.js"></script>
+	<script src="js/lib/storedb.js"></script>
+	<script src="js/lib/angular.js"></script>
+	<script src="js/shopping-list-local.js"></script>
 </head>
 <body ng-controller="ShoppingListController">
+
+	<div class="panel text-center">
+			<h1>My Shopping List</h1> 
+			(GitHub: mayusa)
+	</div>
+
 	<div class="row">
-		<div class="column">		
-			<h1>My Shopping List</h1>
+		<div class="column">	
 
 			<form id="addForm" ng-submit="insert()">
 				<!-- /warning label -->
@@ -32,7 +38,7 @@
 
 				<div class="row">
 					<div class="large-8 columns">
-						<input type="text" name="item" placeholder="Item" ng-model="item" ng-trim="false">
+						<input type="text" name="itemtitle" placeholder="Item Name" ng-model="itemtitle" ng-trim="false">
 					</div>
 					<div class="large-2 columns">
 						<input type="text" name="qty" placeholder="Qty/Weight" ng-model="qty" ng-trim="false">
@@ -87,8 +93,8 @@
 							<input type="checkbox" name="item-{{ item.id }}" id="item-{{ item.id }}" 
 							ng-model="item.done" 
 							ng-true-value="1" 
-							ng-false-value="0"
-							ng-change="update(item)"> 	{{ item.item}}
+							ng-false-value="0" 
+							ng-change="update(item)"> 	{{ item.itemtitle}} - {{ item.date | date: "yyyy-MMM-dd" }}
 						</label>
 					</div>
 					<div class="small-2 columns itemQty">
@@ -100,6 +106,10 @@
 				</div>
 			</form>
 		</div>
+	<br>
+	<br>
 	</div>
+	<br> <br>
+
 </body>
 </html>

@@ -27,5 +27,6 @@ handlers:
 - url: /*
   script: not_found.php
 
-
-
+- url: /(.*\.(gif|png|jpg|json))$
+  static_files: static/\1
+  upload: static/.*\.(gif|png|jpg|json)$
