@@ -6,7 +6,7 @@ class QueryBuilder
 
 	public function __construct($pdo)
 	{
-		$his->pdo = $pdo;
+		$this->pdo = $pdo;
 	}
 
 	public function selectAll($table)
